@@ -1,0 +1,14 @@
+{
+  "name": "owd-module-atproto",
+  "version": "0.0.1",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/atprotoOS/module-atproto",
+  "author": {
+    "name": "dxlliv",
+    "url": "https://github.com/dxlliv"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.14.9",
+    "@atproto/oauth-client-browser": "^0.3.11"
+  }
+}
