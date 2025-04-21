@@ -47,8 +47,11 @@ export default defineNuxtModule({
 
         // configure aliases
 
-        // set alias
-        nuxtApp.options.alias['~owd-atproto'] = resolve(__dirname, 'runtime');
+        nuxt.options.alias ||= {}
+        nuxt.options.alias['@atproto/api'] = require.resolve('@atproto/api')
+        nuxt.options.alias['@atproto/oauth-client-browser'] = require.resolve('@atproto/oauth-client-browser')
+
+        nuxt.options.alias['@owdproject/module-atproto'] = resolve(__dirname, '.')
 
         // set runtime config
         nuxt.options.appConfig.atproto = options
