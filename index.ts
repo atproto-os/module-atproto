@@ -1,5 +1,5 @@
-import { defineNuxtModule, addPlugin, createResolver, addImportsDir } from '@nuxt/kit'
-import { writeFileSync, mkdirSync } from 'fs'
+import {defineNuxtModule, addPlugin, createResolver, addImportsDir} from '@nuxt/kit'
+import {writeFileSync, mkdirSync} from 'fs'
 import {getAtprotoDesktopOwner} from "./runtime/utils/utilsAtprotoDesktop";
 import {AtpAgent} from "@atproto/api";
 
@@ -42,15 +42,16 @@ export default defineNuxtModule({
             }
         }
     },
-    async setup(options: AtprotoOptions, nuxtApp) {
-        const publicDir = resolve(nuxtApp.options.rootDir, 'public');
+    async setup(options: AtprotoOptions, nuxt) {
+        const publicDir = resolve(nuxt.options.rootDir, 'public');
+
+        // configure aliases
 
         // set alias
         nuxtApp.options.alias['~owd-atproto'] = resolve(__dirname, 'runtime');
 
         // set runtime config
-        nuxtApp.options.runtimeConfig.public.atproto = options
-
+        nuxt.options.appConfig.atproto = options
 
         // retrieve owd owner profile from atproto
 
@@ -61,22 +62,31 @@ export default defineNuxtModule({
             options.owd.owner.did
         )
 
-        // generate /public/client-metadata.json
-        try {
-            mkdirSync(publicDir, { recursive: true });
-        } catch (error: any) {
-            console.error('OWD failed creating /public/client-metadata.json', error);
-            return
+        {
+
+            // generate /public/client-metadata.json
+
+            try {
+                mkdirSync(publicDir, {recursive: true});
+            } catch (error: any) {
+                console.error('OWD failed creating /public/client-metadata.json', error);
+                return
+            }
+
+            writeFileSync(
+                publicDir + '/client-metadata.json',
+                JSON.stringify(options.oauth.clientMetadata, null, 2)
+            );
+
         }
 
-        writeFileSync(
-            publicDir + '/client-metadata.json',
-            JSON.stringify(options.oauth.clientMetadata, null, 2)
-        );
+        {
 
-        // import data
-        addImportsDir(resolve('./runtime/composables'))
-        addImportsDir(resolve('./runtime/stores'))
-        addPlugin(resolve('./runtime/plugins/plugin-atproto'))
+            // import data
+            addImportsDir(resolve('./runtime/composables'))
+            addImportsDir(resolve('./runtime/stores'))
+            addPlugin(resolve('./runtime/plugins/plugin-atproto'))
+
+        }
     }
 })

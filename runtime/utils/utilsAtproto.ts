@@ -1,4 +1,4 @@
-import {useAtprotoAccountStore} from "~owd-atproto/stores/storeAtprotoAccount";
+import {useAtprotoAccountStore} from "@owdproject/module-atproto/runtime/stores/storeAtprotoAccount";
 
 export function atprotoSignIn() {
     const {$atproto} = useNuxtApp()

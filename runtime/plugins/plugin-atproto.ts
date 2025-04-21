@@ -1,19 +1,20 @@
 import {BrowserOAuthClient, OAuthSession} from '@atproto/oauth-client-browser'
 import {Agent, AtpAgent} from "@atproto/api";
 import {useAtprotoAccountStore} from "../stores/storeAtprotoAccount";
+import {useAppConfig, defineNuxtPlugin} from "nuxt/app"
 
 export default defineNuxtPlugin({
     name: 'owd-plugin-atproto',
     parallel: true,
     async setup(nuxtApp) {
-        const runtimeConfig = useRuntimeConfig()
+        const appConfig = useAppConfig()
         const atprotoAccountStore = useAtprotoAccountStore()
 
         // define ATProto agents
 
         const agent: { public: AtpAgent, account: undefined | Agent } = {
             public: new AtpAgent({
-                service: runtimeConfig.public.atproto.service.public,
+                service: appConfig.atproto.service.public,
             }),
             account: undefined // this will be set later
         }
@@ -21,9 +22,9 @@ export default defineNuxtPlugin({
         // define ATProto client
 
         const client = new BrowserOAuthClient({
-            handleResolver: runtimeConfig.public.atproto.service.resolver,
+            handleResolver: appConfig.atproto.service.resolver,
             // @ts-ignore to do fix Readonly type
-            clientMetadata: import.meta.env.MODE === 'development' ? undefined : runtimeConfig.public.atproto.oauth.clientMetadata
+            clientMetadata: import.meta.env.MODE === 'development' ? undefined : appConfig.atproto.oauth.clientMetadata
         })
 
         client.addEventListener(

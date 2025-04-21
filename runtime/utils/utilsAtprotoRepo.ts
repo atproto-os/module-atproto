@@ -4,7 +4,7 @@ export async function getATProtoRecord(agent: any, repo: string, collection: str
             repo,
             collection: collection,
             rkey: key,
-        }).catch(() => null)
+        })
 
     return response
 }
@@ -16,7 +16,7 @@ export async function putATProtoRecord(agent: any, repo: string, collection: str
             collection,
             rkey: key,
             record: value,
-        });
+        })
 
     return response
 }
@@ -27,7 +27,7 @@ export async function deleteATProtoRecord(agent: any, repo: string, collection: 
             repo,
             collection,
             rkey: key,
-        });
+        })
 
     return response
 }

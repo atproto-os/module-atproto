@@ -1,4 +1,4 @@
-import {getRecord, createRecord} from "~owd-atproto/utils/utilsAtprotoRepo";
+import {getATProtoRecord, putATProtoRecord} from "../../utils/utilsAtprotoRepo";
 
 export class ApplicationATProtoStateManager {
     private agent
@@ -7,9 +7,7 @@ export class ApplicationATProtoStateManager {
         windows: {}
     }
 
-    constructor() {
-
-    }
+    constructor() {}
 
     public setup(agent, repo) {
         this.agent = agent
@@ -21,7 +19,7 @@ export class ApplicationATProtoStateManager {
     }
 
     public async readRemoteState() {
-        const result = await getRecord(this.agent, this.repo, 'org.owdproject.desktop', 'windows')
+        const result = await getATProtoRecord(this.agent, this.repo, 'org.owdproject.desktop', 'windows')
 
         if (result) {
             this.stateTemp.windows = result.list
@@ -29,7 +27,7 @@ export class ApplicationATProtoStateManager {
     }
 
     public async writeRemoteState(list) {
-        return createRecord(this.agent, this.repo, 'org.owdproject.applications', 'windows', {
+        return putATProtoRecord(this.agent, this.repo, 'org.owdproject.applications', 'windows', {
             list
         })
     }

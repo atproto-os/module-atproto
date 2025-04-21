@@ -1,3 +1,5 @@
+import {useNuxtApp} from "nuxt/app"
+
 export const useAtproto = () => {
     const { $atprotoConfig }: any = useNuxtApp()
 
