@@ -4,8 +4,8 @@
   "license": "GPL-3.0-or-later",
   "homepage": "https://github.com/atproto-os/module-atproto",
   "author": {
-    "name": "dxlliv",
-    "url": "https://github.com/dxlliv"
+    "name": "Open Web Desktop Team",
+    "url": "https://github.com/owdproject"
   },
   "dependencies": {
     "nuxt-atproto": "^0.0.14"
