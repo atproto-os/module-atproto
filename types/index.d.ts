@@ -1,20 +1,11 @@
-interface AtprotoOptions {
-    owd: {
-        owner:{
-            domain?: string
-            did: string
-            profile?: any
-        },
-        desktop: {
-            name: string
-            os: string
-        }
-    }
-    service: {
-        resolver: string
-        public: string
-    }
-    oauth: {
-        clientMetadata: any
+interface AtprotoDesktopOptions {
+    owner: {
+        domain?: string
+        did: string
+        profile?: any
+    },
+    name: {
+        title: string
+        affix: string
     }
 }

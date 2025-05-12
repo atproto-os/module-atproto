@@ -1,13 +1,12 @@
 import {defineStore} from "pinia"
 import {ref, reactive, computed} from "@vue/reactivity"
-import {useAppConfig} from "nuxt/app"
 
 export const useAtprotoAccountStore = defineStore('owd/atproto/account', () => {
-    const appConfig = useAppConfig()
+    const runtimeConfig = useRuntimeConfig()
 
-    const session = ref<any>(undefined)
-    const account = ref<any>(undefined)
-    const handleResolver = ref<string>(appConfig.atproto.service.resolver)
+    const session = ref<any|undefined>()
+    const account = ref<any|undefined>()
+    const handleResolver = ref<string>(runtimeConfig.public.atproto.serviceEndpoint.private)
 
     const state = reactive<{
         fetching: boolean
@@ -23,7 +22,7 @@ export const useAtprotoAccountStore = defineStore('owd/atproto/account', () => {
         return new URL(handleResolver.value).hostname
     })
 
-    function setAccount(value: any) {
+    function setAccount(value: any | undefined) {
         account.value = value
         state.fetching = false
     }
@@ -35,6 +34,11 @@ export const useAtprotoAccountStore = defineStore('owd/atproto/account', () => {
         state[key] = value
     }
 
+    function reset() {
+        session.value = undefined
+        account.value = undefined
+    }
+
     return {
         session,
         account,
@@ -44,6 +48,7 @@ export const useAtprotoAccountStore = defineStore('owd/atproto/account', () => {
         isAccountLogged,
         setAccount,
         setAccountState,
+        reset,
     }
 }, {
     persistedState: {

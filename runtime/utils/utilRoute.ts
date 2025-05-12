@@ -1,5 +1,5 @@
 export function routeAtprotoOS(path?: string) {
-    return `https://github.com/atprotoOS` + path
+    return `https://github.com/atproto-os` + path
 }
 
 export function routeBluesky(path?: string) {

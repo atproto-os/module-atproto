@@ -2,13 +2,15 @@
   "name": "@owdproject/module-atproto",
   "version": "0.0.1",
   "license": "GPL-3.0-or-later",
-  "homepage": "https://github.com/atprotoOS/module-atproto",
+  "homepage": "https://github.com/atproto-os/module-atproto",
   "author": {
     "name": "dxlliv",
     "url": "https://github.com/dxlliv"
   },
   "dependencies": {
-    "@atproto/api": "^0.15.3",
-    "@atproto/oauth-client-browser": "^0.3.11"
+    "nuxt-atproto": "^0.0.14"
+  },
+  "peerDependencies": {
+    "@owdproject/core": ">=3.0.0-alpha.9"
   }
 }
