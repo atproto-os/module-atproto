@@ -34,10 +34,6 @@ export default defineNuxtConfig({
 - Fetches the Open Web Desktop client account host
 - Handles the AT Protocol OAuth client login
 
-## Compatibility
-
-The application is compatible with Open Web Desktop client version `3.0.0-alpha.7`.
-
 ## License
 
 Open Web Desktop is released under the [GNU General Public License v3](LICENSE).
