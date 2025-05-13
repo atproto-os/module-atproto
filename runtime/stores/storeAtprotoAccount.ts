@@ -1,5 +1,6 @@
 import {defineStore} from "pinia"
 import {ref, reactive, computed} from "@vue/reactivity"
+import {useRuntimeConfig} from "nuxt/app"
 
 export const useAtprotoAccountStore = defineStore('owd/atproto/account', () => {
     const runtimeConfig = useRuntimeConfig()

@@ -1,11 +1,11 @@
 import {useAtprotoAccountStore} from "./stores/storeAtprotoAccount";
-import {useRuntimeConfig,defineNuxtPlugin} from "nuxt/app"
+import {defineNuxtPlugin} from "nuxt/app"
+import { useAtproto } from '#imports'
 
 export default defineNuxtPlugin({
     name: 'owd-plugin-atproto',
     parallel: true,
     async setup(nuxtApp) {
-        const runtimeConfig = useRuntimeConfig()
         const atprotoAccountStore = useAtprotoAccountStore()
         // handle oauth callback + session restore
 
