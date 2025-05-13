@@ -1,5 +1,4 @@
 import {defineNuxtModule, addPlugin, createResolver, addImportsDir, installModule} from '@nuxt/kit'
-import {useRuntimeConfig} from "nuxt/app"
 import {getAtprotoDesktopOwner} from "./runtime/utils/utilAtprotoDesktop";
 import {AtpAgent} from "@atproto/api";
 
@@ -45,7 +44,7 @@ export default defineNuxtModule({
             // import data
             addImportsDir(resolve('./runtime/composables'))
             addImportsDir(resolve('./runtime/stores'))
-            addPlugin(resolve('./runtime/plugins/pluginAtproto'))
+            addPlugin(resolve('./runtime/plugin'))
 
         }
     }

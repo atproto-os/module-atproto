@@ -1,4 +1,4 @@
-import {useAtprotoAccountStore} from "../stores/storeAtprotoAccount";
+import {useAtprotoAccountStore} from "./stores/storeAtprotoAccount";
 import {useRuntimeConfig,defineNuxtPlugin} from "nuxt/app"
 
 export default defineNuxtPlugin({
