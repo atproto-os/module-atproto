@@ -20,9 +20,10 @@ npm install @owdproject/module-atproto
 
 ## Usage
 
-Define the module in your `nuxt.config.ts`:
+Then, define it in your desktop configuration:
 
 ```ts
+// desktop/owd.config.ts
 export default defineNuxtConfig({
   modules: ['@owd-client/module-atproto']
 });
@@ -36,5 +37,5 @@ export default defineNuxtConfig({
 
 ## License
 
-Open Web Desktop is released under the [GNU General Public License v3](LICENSE).
+This module is released under the [MIT License](LICENSE).
 
