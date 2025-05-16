@@ -21,7 +21,7 @@ Refer to the [nuxt-atproto](https://www.npmjs.com/package/nuxt-atproto))) docume
 ## Installation
 
 ```bash
-nx run desktop:install-module --name=@owdproject/module-atproto
+owd install-module @owdproject/module-atproto
 ```
 
 ## Configuration
