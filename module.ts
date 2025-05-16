@@ -17,7 +17,7 @@ export default defineNuxtModule({
             title: 'atproto',
             affix: 'OS'
         },
-},
+    },
     async setup(options: AtprotoDesktopOptions, _nuxt) {
         await installModule('nuxt-atproto')
 
