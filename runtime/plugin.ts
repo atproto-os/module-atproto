@@ -12,12 +12,14 @@ export default defineNuxtPlugin({
     nuxtApp.hook('app:mounted', async () => {
       const atproto = useAtproto()
 
-      if (atproto.agent.account) {
+      if (atproto.isLogged()) {
+        const agent = useAgent('private')
+
         atprotoAccountStore.setAccountState('fetching', true)
 
-        await atproto.agent.public
+        await agent
           .getProfile({
-            actor: atproto.agent.account.assertDid,
+            actor: agent.assertDid,
           })
           .then((profile) => {
             atprotoAccountStore.setAccount(profile.data)

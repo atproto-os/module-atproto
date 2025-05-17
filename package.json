@@ -1,6 +1,6 @@
 {
   "name": "@owdproject/module-atproto",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "homepage": "https://github.com/atproto-os/module-atproto",
   "author": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/owdproject"
   },
   "dependencies": {
-    "nuxt-atproto": "^0.0.3"
+    "nuxt-atproto": "0.0.4"
   },
   "peerDependencies": {
     "@owdproject/core": "^3.1.0"

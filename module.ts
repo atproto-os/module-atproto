@@ -28,10 +28,7 @@ export default defineNuxtModule({
     await installModule('nuxt-atproto')
 
     // configure aliases
-
-    _nuxt.options.alias ||= {}
-
-    _nuxt.options.alias['@owdproject/module-atproto'] = resolve(__dirname, '.')
+    _nuxt.options.build.transpile.push('@atproto/api')
 
     // retrieve owd owner profile from atproto
 
