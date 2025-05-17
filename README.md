@@ -13,6 +13,7 @@ This module for Open Web Desktop enables AT Protocol integration.
 Refer to the [nuxt-atproto](https://www.npmjs.com/package/nuxt-atproto))) documentation for more details and options.
 
 ## Features
+
 - Provides ATProto agent and OAuth client integration
 - Generates `client-metadata.json` on the fly in `/public`
 - Fetches the Open Web Desktop client account host
@@ -83,4 +84,3 @@ atprotoDesktop: {
 ## License
 
 This module is released under the [MIT License](LICENSE).
-
