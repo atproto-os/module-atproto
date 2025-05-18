@@ -1,6 +1,6 @@
 import { useAtprotoAccountStore } from './stores/storeAtprotoAccount'
 import { defineNuxtPlugin } from 'nuxt/app'
-import { useAtproto } from '#imports'
+import { useAtproto, useAgent } from '#imports'
 
 export default defineNuxtPlugin({
   name: 'owd-plugin-atproto',
