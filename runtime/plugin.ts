@@ -10,16 +10,17 @@ export default defineNuxtPlugin({
     // handle oauth callback + session restore
 
     nuxtApp.hook('app:mounted', async () => {
+      const {$atproto} = useNuxtApp()
       const atproto = useAtproto()
 
       if (atproto.isLogged()) {
-        const agent = useAgent('private')
+        const agent = useAgent('public')
 
         atprotoAccountStore.setAccountState('fetching', true)
 
         await agent
           .getProfile({
-            actor: agent.assertDid,
+            actor: $atproto.session.value.sub,
           })
           .then((profile) => {
             atprotoAccountStore.setAccount(profile.data)
