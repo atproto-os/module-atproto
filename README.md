@@ -10,7 +10,7 @@
 
 This module for Open Web Desktop enables AT Protocol integration.
 
-Refer to the [nuxt-atproto](https://www.npmjs.com/package/nuxt-atproto))) documentation for more details and options.
+Refer to the [nuxt-atproto](https://www.npmjs.com/package/nuxt-atproto) documentation for more details and options.
 
 ## Features
 
