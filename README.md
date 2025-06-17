@@ -77,10 +77,6 @@ atprotoDesktop: {
 }
 ```
 
-## Requirements
-
-- [@owdproject/module-atproto](https://github.com/atproto-os/module-atproto)
-
 ## License
 
 This module is released under the [MIT License](LICENSE).
