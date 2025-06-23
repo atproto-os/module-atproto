@@ -76,7 +76,7 @@ export default defineNuxtModule({
     )
 
     // set runtime config
-    _nuxt.options.runtimeConfig.public.atprotoDesktop = options
+    _nuxt.options.runtimeConfig.public.desktop.atprotoDesktop = options
 
     {
       // import data

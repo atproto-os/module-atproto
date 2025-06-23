@@ -10,7 +10,7 @@ export const useAtprotoAccountStore = defineStore(
     const session = ref<any | undefined>()
     const account = ref<any | undefined>()
     const handleResolver = ref<string>(
-      runtimeConfig.public.atproto.serviceEndpoint.private,
+      runtimeConfig.public.desktop.atproto.serviceEndpoint.private,
     )
 
     const state = reactive<{
