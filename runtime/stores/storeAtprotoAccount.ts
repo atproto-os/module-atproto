@@ -3,14 +3,15 @@ import { ref, reactive, computed } from '@vue/reactivity'
 import { useRuntimeConfig } from 'nuxt/app'
 
 export const useAtprotoAccountStore = defineStore(
-  'owd/atproto/account',
+  'desktop/atproto/account',
   () => {
     const runtimeConfig = useRuntimeConfig()
 
     const session = ref<any | undefined>()
     const account = ref<any | undefined>()
+    // serviceEndpoint is exposed by nuxt-atproto under runtimeConfig.public.atproto
     const handleResolver = ref<string>(
-      runtimeConfig.public.desktop.atproto.serviceEndpoint.private,
+      runtimeConfig.public.atproto?.serviceEndpoint?.private ?? 'https://bsky.social',
     )
 
     const state = reactive<{
