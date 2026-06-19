@@ -1,0 +1,31 @@
+import { nextTick } from 'vue'
+import { defineNuxtPlugin } from 'nuxt/app'
+import { useApplicationManager } from '@owdproject/core/runtime/composables/useApplicationManager'
+
+export default defineNuxtPlugin({
+  name: 'module-atproto-playground-launch',
+  async setup(nuxtApp) {
+    if (!import.meta.dev) return
+
+    const applicationManager = useApplicationManager()
+
+    async function runDemo() {
+      if (!applicationManager.isAppDefined('org.owdproject.atproto')) {
+        return false
+      }
+      await applicationManager.execAppCommand(
+        'org.owdproject.atproto',
+        'atproto',
+      )
+      return true
+    }
+
+    nuxtApp.hook('app:mounted', async () => {
+      await nextTick()
+      for (let i = 0; i < 80; i++) {
+        if (await runDemo()) return
+        await new Promise((resolve) => setTimeout(resolve, 50))
+      }
+    })
+  },
+})

@@ -25,16 +25,15 @@ export default defineDesktopModule({
     },
   },
   async setup(options: AtprotoDesktopOptions, _nuxt) {
-    await installModule('nuxt-atproto')
-
-    // configure transpile
-    _nuxt.options.build.transpile.push('@atproto/api')
+    await installModule('nuxt-atproto', {})
 
     // retrieve the desktop owner profile via ATProto public API
+    const atprotoConfig = _nuxt.options.runtimeConfig.public.atproto
+    const publicServiceEndpoint = atprotoConfig && atprotoConfig.serviceEndpoint && atprotoConfig.serviceEndpoint.public
+
     options.owner.profile = await getAtprotoDesktopOwner(
       new AtpAgent({
-        service: _nuxt.options.runtimeConfig.public.atproto?.serviceEndpoint?.public
-          ?? 'https://public.api.bsky.app',
+        service: publicServiceEndpoint ?? 'https://public.api.bsky.app',
       }),
       options.owner.did,
     )
