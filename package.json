@@ -16,7 +16,8 @@
     ".": {
       "types": "./dist/types.d.mts",
       "development": "./src/module.ts",
-      "import": "./dist/module.mjs"
+      "import": "./dist/module.mjs",
+      "default": "./dist/module.mjs"
     },
     "./runtime/*": {
       "types": "./src/runtime/*",
@@ -46,6 +47,7 @@
     "validate": "desktop validate ."
   },
   "dependencies": {
+    "@atproto/api": "^0.20.6",
     "@nuxt/kit": "^4.4.6",
     "nuxt-atproto": "workspace:*"
   },
